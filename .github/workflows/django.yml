@@ -40,7 +40,7 @@ jobs:
       run: docker-compose up --build --detach
 
     - name: Run tests
-      run: docker exec -T web python manage.py test
+      run: docker exec web python manage.py test
 
     - name: Stop and remove web service
       run: docker-compose down

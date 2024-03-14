@@ -8,15 +8,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    services:
-      db:
-        image: postgres:16.2-alpine
-#        ports:
-#          - "5432:5432"
-        env:
-          POSTGRES_DB: postgres
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+#    services:
+ #     db:
+  #      image: postgres:16.2-alpine
+   #     ports:
+    #      - "5432:5432"
+     #   env:
+      #    POSTGRES_DB: postgres
+       #   POSTGRES_USER: postgres
+        #  POSTGRES_PASSWORD: postgres
 
     steps:
     - name: Checkout repository

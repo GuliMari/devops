@@ -40,9 +40,9 @@ jobs:
       run: docker-compose up -d --wait
 
     - name: Run tests
-      run: docker exec web python manage.py test
+      run: docker exec devops-demo-service_web_1  python manage.py test
 
-    - name: Stop and remove devops-demo-service_web_1  service
+    - name: Stop and remove web service
       run: docker-compose down
 
     - name: Build the Docker image

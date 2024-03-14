@@ -35,7 +35,7 @@ jobs:
       run: sudo service docker start
 
     - name: Build and run web service
-      run: docker-compose up --build --detach
+      run: docker-compose up -d
 
     - name: Run tests
       run: docker exec web python manage.py test

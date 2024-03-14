@@ -39,6 +39,16 @@ jobs:
     - name: Build and run web service
       run: docker-compose up -d
 
+    - name: Wait for DB container to be ready
+      run: |
+          for i in {1..10}; do
+            nc -zv localhost 5432 && echo "DB container is ready" && exit 0
+            echo "Waiting for DB container..."
+            sleep 5
+          done
+          echo "DB container failed to start"
+          exit 1
+          
     - name: Run tests
       run: docker exec web python manage.py test
 

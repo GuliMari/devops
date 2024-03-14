@@ -31,6 +31,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install docker-ce docker-compose
+        sudo usermod -aG docker $USER
 
     - name: Start Docker
       run: sudo service docker start

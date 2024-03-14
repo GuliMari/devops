@@ -2,27 +2,49 @@ name: Django CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+    branches:
+      - main
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
+    services:
+      db:
+        image: postgres:16.2-alpine
+        ports:
+          - "5432:5432"
+        environment:
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: '3.11'
-    
-    - name: Install dependencies
-      run: poetry install
+        python-version: 3.11
+
+    - name: Install Docker
+      run: |
+        sudo apt-get update
+        sudo apt-get install docker.io
+
+    - name: Start Docker
+      run: sudo service docker start
+
+    - name: Build and run web service
+      run: docker-compose up --build --detach
 
     - name: Run tests
-      run: poetry run python manage.py test
+      run: docker-compose exec web python manage.py test
+
+    - name: Stop and remove web service
+      run: docker-compose down
 
     - name: Build Docker image
       run: docker-compose build
+
+

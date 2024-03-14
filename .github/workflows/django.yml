@@ -12,7 +12,7 @@ jobs:
       db:
         image: postgres:16.2-alpine
         ports:
-          - "5433:5432"
+          - "5432:5432"
         env:
           POSTGRES_DB: postgres
           POSTGRES_USER: postgres
@@ -37,7 +37,7 @@ jobs:
       run: sudo service docker start
 
     - name: Build and run web service
-      run: docker-compose up -d
+      run: docker-compose up -d --wait
 
     - name: Run tests
       run: docker exec web python manage.py test

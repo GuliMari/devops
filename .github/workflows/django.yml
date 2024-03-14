@@ -43,7 +43,7 @@ jobs:
     - name: Stop and remove web service
       run: docker-compose down
 
-    - name: Build Docker image
-      run: docker-compose build
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
 

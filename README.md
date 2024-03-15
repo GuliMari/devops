@@ -5,7 +5,7 @@
 
 
          
-Для выполнения задания в репозиторий добавлен `docker-compose.yml` и папка `nginx` c `Dockerfile` для сервера NGINX и его конфигурационным файлом.
+Для выполнения задания в репозиторий добавлен `docker-compose.yml` и папка `nginx` c `Dockerfile` для сервера NGINX и его конфигурационным файлом. Все конфиденциальные данные скрыты в `.env`.   
 После команды `docker-compose up` запускается 3 контейнера:      
 
 ![Docker](https://github.com/GuliMari/devops/blob/main/Screenshots/Docker.png)

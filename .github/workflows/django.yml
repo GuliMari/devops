@@ -31,6 +31,10 @@ jobs:
     
     - name: Check if containers are running
       run: docker ps 
+
+    - name: Check if port 5432 is open in Docker container
+      run: docker exec db nc -zv localhost 5432
+
         
     - name: Run tests
       run: docker exec web python manage.py test

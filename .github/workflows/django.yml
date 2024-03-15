@@ -29,10 +29,8 @@ jobs:
     - name: Build and run web service
       run: docker-compose up -d
     
-    - name: Wait for DB
-      run: |
-        chmod +x ./wait-for-it.sh
-        ./wait-for-it.sh db:5432 --timeout=30  
+    - name: Check if containers are running
+      run: docker ps 
         
     - name: Run tests
       run: docker exec web python manage.py test

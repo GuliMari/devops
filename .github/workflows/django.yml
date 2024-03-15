@@ -32,8 +32,8 @@ jobs:
     - name: Check if containers are running
       run: docker ps 
         
-    #- name: Run tests
-     # run: docker exec web python manage.py test
+    - name: Run tests
+      run: docker exec web python manage.py test
 
     - name: Stop and remove web service
       run: docker-compose down

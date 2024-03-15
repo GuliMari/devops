@@ -8,16 +8,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-#    services:
- #     db:
-  #      image: postgres:16.2-alpine
-   #     ports:
-    #      - "5432:5432"
-     #   env:
-      #    POSTGRES_DB: postgres
-       #   POSTGRES_USER: postgres
-        #  POSTGRES_PASSWORD: postgres
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -38,7 +28,12 @@ jobs:
 
     - name: Build and run web service
       run: docker-compose up -d
-      
+    
+    - name: Wait for DB
+      run: |
+        chmod +x ./wait-for-it.sh
+        ./wait-for-it.sh db:5432 --timeout=30  
+        
     - name: Run tests
       run: docker exec web python manage.py test
 

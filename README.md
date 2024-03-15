@@ -24,5 +24,5 @@
 
 Для решения данной задачи создан `tests.yml`, после запуска которого при успешного прохождения выполняется сборкф docker образа и публикуется в docker-hub.     
 
-![DockerHub](https://github.com/GuliMari/devops/blob/main/Screenshots/DockerHub.png)
+![DockerHub](https://github.com/GuliMari/devops/blob/main/Screenshots/Dockerhub.png)
 

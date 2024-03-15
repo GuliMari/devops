@@ -16,6 +16,10 @@
 ![NGINX](https://github.com/GuliMari/devops/blob/main/Screenshots/Nginx.png)
 
 
+Вводим данные администратора:   
+
+![Admin](https://github.com/GuliMari/devops/blob/main/Screenshots/Adminpass.png)
+
 # Задание
 ## 2,4
 2. Надо реализовать CI процесс в **Github** для запуска тестов и в случае их успешного прохождения выполнить сборку docker образа. Если же тесты не прошли весь CI процесс должен падать с ошибкой.
@@ -25,4 +29,7 @@
 Для решения данной задачи создан `tests.yml`, после запуска которого при успешном прохождении выполняется сборка docker образа и публикуется в docker-hub.     
 
 ![DockerHub](https://github.com/GuliMari/devops/blob/main/Screenshots/Dockerhub.png)
+
+
+
 
